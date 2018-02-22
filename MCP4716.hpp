@@ -1,17 +1,17 @@
 #ifndef MCP4716_H
 #define MCP4716_H
+#include "Arduino.h"
 
-#include <Wire.h>
 #include <stdint.h>
-class MCP4716{
+
+class MCP4716 {
 private:
   void command();
-  int address=0x60; //DEFAULT ADDRESS
-  int Gain=1;
-  int Vref=1;
-  int Cmd=3; // Option Not Available to user, function to be added
+  int address; //DEFAULT ADDRESS
+  int Gain;
+  int Vref;
+  int Cmd; // Option Not Available to user, function to be added
 public:
-  MCP4716();
   MCP4716(int adrs);
   void setGain(int G); //1=x1, 2=x2
   void setVout(uint16_t Vout);

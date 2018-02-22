@@ -1,10 +1,12 @@
-#include "MCP4716.h"
+#include "MCP4716.hpp"
+#include "Arduino.h"
+#include <Wire.h>
 
-MCP4716::MCP4716(){
-  //Uses Default address.
-};
 MCP4716::MCP4716(int adrs){
   address=adrs;
+  Gain=1;
+  Vref=1;
+  Cmd=3; // Option Not Available to user, function to be added
 };
 
 void MCP4716::setGain(int G){
@@ -32,10 +34,10 @@ void MCP4716::command(){
 
   Wire.write(B00); //Power down Bits
 
-  if (G==1){
-    Wire.Write(B0); //Gain=1
+  if (Gain==1){
+    Wire.write(B0); //Gain=1
   }
-  else Wire.Write(B1); //Gain =2
+  else Wire.write(B1); //Gain =2
 };
 
 void MCP4716::setVout(uint16_t Vout){
@@ -47,5 +49,5 @@ void MCP4716::setVout(uint16_t Vout){
   command();
   Wire.write(set_upper);
   Wire.write(set_lower);
-  Wire.endTransmission;
+  Wire.endTransmission();
 };
