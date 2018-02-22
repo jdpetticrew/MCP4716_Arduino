@@ -11,6 +11,7 @@ private:
   int Vref=1;
   int Cmd=3; // Option Not Available to user, function to be added
 public:
+  MCP4716();
   MCP4716(int adrs);
   void setGain(int G); //1=x1, 2=x2
   void setVout(uint16_t Vout);

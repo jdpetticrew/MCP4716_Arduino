@@ -1,5 +1,8 @@
 #include "MCP4716.h"
 
+MCP4716::MCP4716(){
+  //Uses Default address.
+};
 MCP4716::MCP4716(int adrs){
   address=adrs;
 };
