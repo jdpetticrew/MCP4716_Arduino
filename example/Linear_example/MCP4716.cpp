@@ -20,30 +20,34 @@ void MCP4716::setVref(int Vr){
 };
 
 void MCP4716::command(){
-  Wire.write(B1); // Write Bit
-  Wire.write(B011); //Command Bit
+  uint8_t command;
+  command=96; //Command Bit
+
   if(Vref==1){
-    Wire.write(B00); //Vdd
+    command=command+0; //Vdd
   }
   else if (Vref==2){
-    Wire.write(B10); // VrefUnbuf
+    command=command+16; // VrefUnbuf
   }
   else if (Vref==3){
-    Wire.write(B11);
+    command=command+24;
   }
 
-  Wire.write(B00); //Power down Bits
+  command=command+00;; //Power down Bits
 
   if (Gain==1){
-    Wire.write(B0); //Gain=1
+    command=command+0;; //Gain=1
   }
-  else Wire.write(B1); //Gain =2
+  else command=command+1; //Gain =2
+  byte com=(byte) command;
+  Wire.write(com);
 };
 
 void MCP4716::setVout(uint16_t Vout){
   uint16_t set= Vout << 6;
   byte set_upper= (byte) (set >> 8);
-  byte set_lower= (byte) (set && 0x0f);
+  uint8_t set_l = (uint8_t) set;
+  byte set_lower= (byte) set_l;
 
   Wire.beginTransmission(address);
   command();
