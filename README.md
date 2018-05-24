@@ -1,6 +1,6 @@
 MCP4716 Library
 
-This library is a Arduino library for setting the output voltage of an MCP4716 DAC.
+This library is a Arduino library for setting the output voltage of an MCP4716 DAC. This library has been tested with an Arduino Uno.
 
 setGain(i)
 Set gain is the function used to set the DACs internal gain.
