@@ -1,3 +1,5 @@
+// Copyright (c) Jonathan Petticrew 2018.
+// Licensed under the MIT LICENSE; you may not use this file except in compliance with the License.
 #include <Wire.h>
 #include "MCP4716.hpp"
 

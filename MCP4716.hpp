@@ -1,3 +1,5 @@
+// Copyright (c) Jonathan Petticrew 2018.
+// Licensed under the MIT LICENSE; you may not use this file except in compliance with the License.
 #ifndef MCP4716_H
 #define MCP4716_H
 #include "Arduino.h"
